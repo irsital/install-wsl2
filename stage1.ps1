@@ -9,9 +9,9 @@ Write-Host "Step 1 - Check requirements for running WSL 2"
 $info=(Get-ComputerInfo  | Select-Object WindowsVersion, OsBuildnumber)
 
 If ([int]$info.WindowsVersion -ge $Global:MinWinVer ) {
-    "OK. Windows Version is: {0}" -f $info.WindowsVersion, $Global:MinWinVer
+    "OK. Windows Version {0} >= {1}" -f $info.WindowsVersion, $Global:MinWinVer
     If ([int]$info.OsBuildnumber -ge $Global:MinBuildVer ) {
-        "OK. Windows Build Number is: {0}" -f $info.OsBuildnumber, $Global:MinBuildVer
+        "OK. Windows Build Number {0} >= {1}" -f $info.OsBuildnumber, $Global:MinBuildVer
     } Else {
         "Error. Windows Build Number is: {0}, but should be >= {1} to install WSL2" -f $info.OsBuildnumber, $Global:MinBuildVer
         Exit
